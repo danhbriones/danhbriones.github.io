@@ -36,20 +36,20 @@ Your Pages site will use the layout and styles from the Jekyll theme you have se
 
 Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
 
+{% for category in site.categories %}
+  <h3>{{ category[0] }}</h3>
+  <ul>
+    {% for post in category[1] %}
+      <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+    {% endfor %}
+  </ul>
+{% endfor %}
+
 
 <ul>
   {% for post in site.posts %}
     <li>
       <a href="{{ post.url }}">{{ post.title }}</a>
-    </li>
-  {% endfor %}
-</ul>
-
-<ul>
-  {% for post in site.posts %}
-    <li>
-      <a href="{{ post.url }}">{{ post.title }}</a>
-      {{ post.excerpt }}
     </li>
   {% endfor %}
 </ul>
